@@ -19,6 +19,7 @@ mongoose.connect('mongodb+srv://user:pass123456@cluster0-twa8e.mongodb.net/seman
 
 //For POST JSON Objects, Express will need this configuration below
 app.use(express.json());
+//Load routes from application
 app.use(routes);
 
 app.listen(3333);//Defines in which port the server will be listen
