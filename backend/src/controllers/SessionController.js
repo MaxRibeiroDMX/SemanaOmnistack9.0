@@ -5,8 +5,11 @@ module.exports = {
         //Get email from post body
         const {email} = req.body;
 
+        let user = await User.findOne({email});//Search in database for the email registered
+        if(!user){
+            user = await User.create({email});
+        }
         //Add the info for user model
-        const user = await User.create({email});
         return res.json(user);
     }
 };
