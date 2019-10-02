@@ -1,6 +1,13 @@
 const Spot = require('../models/Spot');
 
 module.exports = {
+    async index(req,res){
+        const {tech} = req.query;
+
+        const spots = await Spot.find({techs:tech});
+
+        return res.json(spots);
+    },
     async store(req,res){
         //importing information from Spot model
         const { filename } = req.file;
