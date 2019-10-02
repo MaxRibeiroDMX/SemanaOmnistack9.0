@@ -1,9 +1,16 @@
 // Importing modules
 const express = require('express');
 
-const app = express();//Create a express application
+const mongoose = require('mongoose');
 
 const routes = require('./routes');//Importing routes to aplication
+
+const app = express();//Create a express application
+
+mongoose.connect('mongodb+srv://user:pass123456@cluster0-twa8e.mongodb.net/semana09?retryWrites=true&w=majority',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+});
 //GET, POST. PUT, DELETE
 
 //req,query = Access query params to filter
