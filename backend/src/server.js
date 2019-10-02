@@ -2,6 +2,8 @@
 const express = require('express');
 
 const app = express();//Create a express application
+
+const routes = require('./routes');//Importing routes to aplication
 //GET, POST. PUT, DELETE
 
 //req,query = Access query params to filter
@@ -10,8 +12,6 @@ const app = express();//Create a express application
 
 //For POST JSON Objects, Express will need this configuration below
 app.use(express.json());
-app.post('/users',(req,res)=>{
-    return res.json(req.body);
-});
+app.use(routes);
 
 app.listen(3333);//Defines in which port the server will be listen
