@@ -6,9 +6,12 @@ const app = express();//Create a express application
 
 //req,query = Access query params to filter
 //req.params = Acess route params to edit and delete
+//req.body = Acess body elements in a POST request
 
-app.put('/users/:id',(req,res)=>{
-    return res.json({id : req.params.id});//Req query get query paramns
+//For POST JSON Objects, Express will need this configuration below
+app.use(express.json());
+app.post('/users',(req,res)=>{
+    return res.json(req.body);
 });
 
 app.listen(3333);//Defines in which port the server will be listen
