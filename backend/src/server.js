@@ -1,6 +1,8 @@
 // Importing modules
 const express = require('express');
 
+const cors = require('cors');
+
 const mongoose = require('mongoose');
 
 const routes = require('./routes');//Importing routes to aplication
@@ -17,6 +19,7 @@ mongoose.connect('mongodb+srv://user:pass123456@cluster0-twa8e.mongodb.net/seman
 //req.params = Acess route params to edit and delete
 //req.body = Acess body elements in a POST request
 
+app.use(cors());
 //For POST JSON Objects, Express will need this configuration below
 app.use(express.json());
 //Load routes from application
